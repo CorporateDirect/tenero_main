@@ -1,0 +1,119 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="podcast-home-list_wrapper">
+                <div class="podcast_cms-wrapper">
+                  <div class="layout_content margin-bottom margin-medium is-center-aligned">
+                    <div class="margin-bottom margin-xsmall">
+                      <div class="text-style-tagline is-alt-color">
+{{ section.settings.text_tagline }}
+</div>
+                    </div>
+                    <div class="margin-bottom margin-small">
+                      <h2 class="heading-style-h2 is-alt-color text-align-center">
+{{ section.settings.text_heading }}
+</h2>
+                    </div>
+                    <div class="margin-bottom margin-xxlarge">
+                      <p class="text-size-medium text-align-center is-alt-color">
+{{ section.settings.text_paragraph }}
+</p>
+                    </div>
+                  </div>
+                  {% assign episodes_sorted = shop.metaobjects.episode.values | sort_natural: 'episode_number' | reverse %}
+                  {% assign latest_episodes = episodes_sorted | slice: 0, 3 %}
+                  <div class="layout_list">
+                    <div class="podcast-home-list_wrapper">
+                      <div class="podcast_cms-wrapper">
+                        {% for ep in latest_episodes %}    <a li-for="ep in latest_episodes" href="#" class="podcast_list-item w-inline-block">
+                                    
+                          
+                            <div class="margin-bottom margin-xxsmall">
+                            <div sym-bind="{"children":{"type":"Call","val":{"fun":{"type":"Variable","val":["DynamoGateway","dynamoPlainTextToListOfElements"]},"arg":{"type":"Select","val":{"from":{"type":"Variable","val":"Dynamo"},"prop":"podcast-episode-number"}}}}}" class="text-style-tagline is-alt-color is-hidden">This is some text inside of a div block.</div>
+                          </div>
+                            
+                          
+                            <div class="margin-bottom margin-xxsmall">
+                            <div class="podcast_episode-wrapper">
+                              <div sym-bind="{"children":{"type":"Call","val":{"fun":{"type":"Variable","val":["DynamoGateway","dynamoPlainTextToListOfElements"]},"arg":{"type":"Select","val":{"from":{"type":"Variable","val":"Dynamo"},"prop":"podcast-episode-number"}}}}}" class="text-style-tagline is-alt-color">Episode</div>
+                              <div li-object="ep.episode_number" class="text-style-tagline is-alt-color">{{ ep.episode_number }}</div>
+                            </div>
+                          </div>
+                            
+                          
+                            <div class="margin-bottom margin-small">
+                            <h3 li-object="ep.title" class="heading-style-h3 is-alt-color">{{ ep.title }}</h3>
+                          </div>
+                            
+                          
+                            <div class="margin-bottom margin-small">
+                            <p li-object="ep.description" class="text-size-regular-3 is-alt-color">{{ ep.description }}</p>
+                          </div>
+                            
+                          
+                            <div class="margin-top margin-medium">
+                            <div class="content-tag_collection-wrapper">
+                              <div class="content-tag_collection-list">
+                                <div li-object="t in ep.tags" class="content-tag_collection-item">{{ t in ep.tags }}</div>
+                              </div>
+                            </div>
+                          </div>
+                            
+                        
+                        </a>
+{% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="margin-top margin-medium">
+                    <div class="button-group align-center">
+                      <a href="{{ section.settings.url_button_link }}" class="button is-icon icon-right is-alternate-color w-inline-block"> <div class="button_label is-alt-color">{{ section.settings.text_button_text }}</div> <div class="arrow-wrapper is-alternate-color"> <div bind="eb18cb50-22a9-9a75-e2b8-e291477ae8d4" class="icon-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.44772 12.4477 4 13 4H19C19.5523 4 20 4.44772 20 5V11C20 11.5523 19.5523 12 19 12C18.4477 12 18 11.5523 18 11V6H13C12.4477 6 12 5.55228 12 5Z" fill="#393C34"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z" fill="#393C34"></path> </svg></div> </div> </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Latest Episodes",
+    "class": "section_layout component-485",
+    "settings": [
+        {
+            "id": "text_tagline",
+            "type": "text",
+            "label": "Tagline",
+            "default": "Latest Episodes"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Tenero Table"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        },
+        {
+            "id": "url_button_link",
+            "type": "url",
+            "label": "Button Link"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "See more episodes"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Latest Episodes",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

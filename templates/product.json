@@ -1,0 +1,29 @@
+{
+    "sections": {
+        "product_hero": {
+            "type": "product_hero"
+        },
+        "product_features": {
+            "type": "product_features",
+            "blocks": {
+                "product-feature": {
+                    "name": "Product Feature",
+                    "type": "product-feature"
+                }
+            },
+            "block_order": [
+                "product-feature"
+            ]
+        },
+        "testimonials": {
+            "type": "testimonials"
+        }
+    },
+    "layout": "product",
+    "wrapper": "div.main-wrapper.product-page",
+    "order": [
+        "product_hero",
+        "product_features",
+        "testimonials"
+    ]
+}

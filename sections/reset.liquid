@@ -1,0 +1,50 @@
+<div class="padding-global padding-section-large">
+          <div class="container-large">
+            <div class="login_tabs">
+              <div class="login_form w-form">
+                <h1 class="text-align-center heading-style-h4">
+{{ section.settings.text_reset_password }}
+</h1>
+                {% form 'reset_customer_password', class: 'form_form' %}
+{% if form.errors %}    <div li-if="form.errors" class="form_error-message">
+    
+                    <div li-object="form.errors | default_errors" class="text-size-small text-style-error">{{ form.errors | default_errors }}</div>
+                      </div>
+{% endif %}
+                  <div class="form_field-wrapper"><label for="field-3" class="form_hidden-label">Password</label><input class="form_input is-secondary w-input" maxlength="256" name="customer[password]" data-name="Field 3" placeholder="Password" type="password" id="field-3" required=""></div>
+                  <div class="form_field-wrapper"><label for="field-3" class="form_hidden-label">Confirm Password</label><input class="form_input is-secondary w-input" maxlength="256" name="customer[password_confirmation]" data-name="Field 3" placeholder="Confirm Password" type="password" id="field-3" required=""></div><input type="submit" data-wait="" id="w-node-_6ac90a53-a508-30c2-f804-dd8a2df34ee3-6124ac05" class="button max-width-full w-button" value="Reset password">
+                {% endform %}
+                <div class="w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="login_error w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Reset",
+    "class": "section_newsletter",
+    "settings": [
+        {
+            "id": "text_reset_password",
+            "type": "text",
+            "label": "Reset Password",
+            "default": "Reset Password"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Reset",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "customers\/reset_password"
+        ]
+    }
+} {% endschema %}

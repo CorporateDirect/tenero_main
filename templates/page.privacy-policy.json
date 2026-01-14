@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "legal_hero": {
+            "type": "legal_hero"
+        },
+        "legal_content": {
+            "type": "legal_content"
+        }
+    },
+    "layout": "page.privacy-policy",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "legal_hero",
+        "legal_content"
+    ]
+}

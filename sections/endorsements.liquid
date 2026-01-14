@@ -1,0 +1,94 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-medium">
+              <div class="logo-section_component">
+                <div class="logo_container">
+                  <div class="logo_content-left">
+                    <h2 class="heading-style-h6">
+{{ section.settings.text_heading }}
+</h2>
+                  </div>
+                  <div class="logo_logo-list">
+                    {% for block in section.blocks %}
+    {% if block.type == "logo" %}
+                    <div li-block="logo" id="w-node-ee4f3c35-3fff-ceb9-b644-5f5fdb94969e-db949694" class="logo_wrapper">
+                                    <img loading="lazy" src="{{ 'tenero-logo-dark.svg' | asset_url }}" alt="" class="logo_logo">
+                            </div>
+            {% endif %}
+{% endfor %}
+                    {% for block in section.blocks %}
+    {% if block.type == "logo" %}
+                    <div li-block="logo" class="logo_wrapper">
+                                    <img loading="lazy" src="{{ 'tenero-logo-dark.svg' | asset_url }}" alt="" class="logo_logo">
+                            </div>
+            {% endif %}
+{% endfor %}
+                    {% for block in section.blocks %}
+    {% if block.type == "logo" %}
+                    <div li-block="logo" class="logo_wrapper">
+                                    <img loading="lazy" src="{{ 'tenero-logo-dark.svg' | asset_url }}" alt="" class="logo_logo">
+                            </div>
+            {% endif %}
+{% endfor %}
+                    {% for block in section.blocks %}
+    {% if block.type == "logo" %}
+                    <div li-block="logo" class="logo_wrapper">
+                                    <img loading="lazy" src="{{ 'tenero-logo-dark.svg' | asset_url }}" alt="" class="logo_logo">
+                            </div>
+            {% endif %}
+{% endfor %}
+                    {% for block in section.blocks %}
+    {% if block.type == "logo" %}
+                    <div li-block="logo" id="w-node-ee4f3c35-3fff-ceb9-b644-5f5fdb9496a6-db949694" class="logo_wrapper">
+                                    <img loading="lazy" src="{{ 'tenero-logo-dark.svg' | asset_url }}" alt="" class="logo_logo">
+                            </div>
+            {% endif %}
+{% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Endorsements",
+    "class": "section_layout component-logo-2",
+    "blocks": [
+        {
+            "name": "logo",
+            "type": "logo",
+            "settings": null
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Endorsed by some companies"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Endorsements",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "logo"
+                },
+                {
+                    "type": "logo"
+                },
+                {
+                    "type": "logo"
+                },
+                {
+                    "type": "logo"
+                },
+                {
+                    "type": "logo"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

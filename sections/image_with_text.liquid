@@ -1,0 +1,65 @@
+<div class="hide w-embed">{
+          "type": "select",
+          "id": "bg_variant",
+          "label": "Background",
+          "default": "default",
+          "options": [
+          { "value": "default", "label": "Default" },
+          { "value": "alt", "label": "Alternate" }
+          ]
+          }</div>
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="layout-two-column_component">
+                <div class="image-with-text-grid{% if section.settings.image_position == 'right' %}is-reversed{% endif %}">
+                  <div id="w-node-d2d675de-f39f-d02c-a84f-4df5f96ee7bb-989e1f93" class="layout-two-column_content-right">
+                    <div class="margin-bottom margin-small">
+                      <h2 class="heading-style-h3">
+{{ section.settings.text_heading }}
+</h2>
+                    </div>
+                    <p class="text-size-medium">
+{{ section.settings.text_paragraph }}
+</p>
+                  </div>
+                  <div class="layout-two-column_image-wrapper">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 1000 | image_tag: width: '600', height: '600', loading: 'lazy', class: 'layout_image' }}
+{% else %}
+<img width="600" height="600" alt="{{ section.settings.image_alt_text}}" src="https://cdn.prod.website-files.com/6939dccb328f7fb90eab5793/6939f5710372fc0825065fcc_square-placeholder.png" loading="lazy" class="layout_image">
+{% endif %}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Image with Text",
+    "class": "section_layout image-with-text is-alt-bg-color",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "About Garrett Sutton"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. "
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with Text",
+            "category": "Content",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

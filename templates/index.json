@@ -1,0 +1,50 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "endorsements": {
+            "type": "endorsements",
+            "blocks": {
+                "logo": {
+                    "name": "logo",
+                    "type": "logo"
+                }
+            },
+            "block_order": [
+                "logo"
+            ]
+        },
+        "image_with_text": {
+            "type": "image_with_text"
+        },
+        "text_highlight": {
+            "type": "text_highlight"
+        },
+        "latest_episodes": {
+            "type": "latest_episodes"
+        },
+        "faq": {
+            "type": "faq",
+            "blocks": {
+                "faq-item": {
+                    "name": "FAQ Item",
+                    "type": "faq-item"
+                }
+            },
+            "block_order": [
+                "faq-item"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "hero",
+        "endorsements",
+        "image_with_text",
+        "text_highlight",
+        "latest_episodes",
+        "faq"
+    ]
+}

@@ -1,0 +1,268 @@
+<div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="headline-wrapper">
+                <h2 id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f6f-f94977d6" class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+                <a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="text-size-small"><span class="text-size-small">
+{{ section.settings.text_continue_shopping }}
+</span></a>
+              </div>
+              {% if cart.item_count > 0 %}    <div li-if="cart.item_count > 0" class="cart_form-block w-form">
+    
+                {% form 'cart', cart, class: 'cart_grid-wrapper' %}
+<div class="cart_table outline-solid-1">
+                    <div class="cart_grid is-header w-hidden-tiny">
+                      <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f78-f94977d6" class="cart_table-header">
+                        <p class="text-size-regular text-weight-semibold">
+{{ section.settings.text_product }}
+</p>
+                      </div>
+                      <div class="cart_table-header">
+                        <p class="text-size-regular text-weight-semibold">
+{{ section.settings.text_quantity }}
+</p>
+                      </div>
+                      <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f7e-f94977d6" class="cart_table-header">
+                        <p class="text-size-regular text-weight-semibold">
+{{ section.settings.text_price }}
+</p>
+                      </div>
+                    </div>
+                    {% for item in cart.items %}    <div li-for="item in cart.items" class="cart_grid">
+                                    
+                      
+                            <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f82-f94977d6" class="display-inlineflex">
+                        <a href="{{ item.url }}" li-object:href="item.url" id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f83-f94977d6" class="cart_image-link-wrapper w-inline-block"><img li-object:src="item.image | image_url: width: 200" src="{{ item.image | image_url: width: 200 }}" alt="" class="cart_image"></a>
+                        <div class="cart_info-order">
+                          <a href="{{ item.url }}" li-object:href="item.url" li-object="item.title" class="text-size-regular is-link">{{ item.title }}</a>
+                          <div class="hide">
+                            <p item="price" class="cart_price">$13</p>
+                            <p item="original-price" class="cart_price away">$18</p>
+                          </div>
+                        </div>
+                      </div>
+                            
+                      
+                            <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f8d-f94977d6" class="cart_table-item anzahl">
+                        <div class="cart_quantity-wrapper">
+                          <div class="text-size-small">Quantity</div><input class="cart_quantity w-input" maxlength="256" name="updates[]" data-name="updates[]" placeholder="1" type="number" id="updates[]" required="" value="{{ item.quantity }}">
+                        </div>
+                        <a href="{{ item.url_to_remove }}" li-object:href="item.url_to_remove" class="cart_remove-link-wrapper w-inline-block">
+                          <div class="text-size-tiny">
+{{ section.settings.text_remove }}
+</div>
+                        </a>
+                      </div>
+                            
+                      
+                            <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f95-f94977d6" class="cart_price-info">
+                        <div li-object="item.final_line_price | money" class="text-size-regular">{{ item.final_line_price | money }}</div>
+                        {% if item.original_line_price > item.final_line_price %}    <div li-if="item.original_line_price > item.final_line_price" class="cat_price-origina-price">
+    
+                          <div li-object="item.original_line_price | money" class="text-size-small text-style-strikethrough">{{ item.original_line_price | money }}</div>
+                            </div>
+{% endif %}
+                      </div>
+                            
+                    
+                        </div>
+{% endfor %}
+                  </div>
+                  <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f9b-f94977d6" class="cart_wrapper-right">
+                    <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f9c-f94977d6" class="cart_table outline-solid-1">
+                      <div class="cart_grid is-header w-hidden-tiny">
+                        <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5f9e-f94977d6" class="cart_table-header">
+                          <p class="text-size-regular text-weight-semibold">
+{{ section.settings.text_summary }}
+</p>
+                        </div>
+                      </div>
+                      <div class="cart_content">
+                        <div class="cart_wrapper">
+                          <div class="cart_details-wrapper">
+                            <div class="text-size-regular">
+{{ section.settings.text_subtotal }}
+</div>
+                            <div class="cart_details-price">
+                              <div li-object="cart.total_price | money" class="text-size-regular">{{ cart.total_price | money }}</div>
+                              {% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0" class="margin-bottom">
+    
+                                <div li-object="cart.original_total_price | money" class="text-size-regular text-style-strikethrough">{{ cart.original_total_price | money }}</div>
+                                  </div>
+{% endif %}
+                            </div>
+                          </div>
+                          {% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0" class="cart_details-wrapper">
+    
+                            <div class="text-size-regular">
+{{ section.settings.text_discount }}
+</div>
+                            <div li-object="cart.total_discount | money" class="text-size-regular">{{ cart.total_discount | money }}</div>
+                              </div>
+{% endif %}
+                        </div>
+                        <div class="cart_action">
+                          <div class="button-group stack-vertical">
+                            <a href="#" class="button is-icon icon-right w-inline-block" value="Checkout" name="checkout">
+                              <div class="button_label-2">
+{{ section.settings.text_button_text }}
+</div>
+                              <div class="arrow-wrapper">
+                                <div bind="87627e51-1a8f-0697-1618-171297b0803c" class="icon-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.44772 12.4477 4 13 4H19C19.5523 4 20 4.44772 20 5V11C20 11.5523 19.5523 12 19 12C18.4477 12 18 11.5523 18 11V6H13C12.4477 6 12 5.55228 12 5Z" fill="#393C34"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z" fill="#393C34"></path>
+                                  </svg></div>
+                              </div>
+                            </a>
+                            <a href="#" class="button is-secondary w-inline-block" value="Update cart">
+                              <div class="button_label is-alt-color">
+{{ section.settings.text_button_text }}
+</div>
+                              <div class="arrow-wrapper">
+                                <div bind="87627e51-1a8f-0697-1618-171297b0803c" class="icon-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.44772 12.4477 4 13 4H19C19.5523 4 20 4.44772 20 5V11C20 11.5523 19.5523 12 19 12C18.4477 12 18 11.5523 18 11V6H13C12.4477 6 12 5.55228 12 5Z" fill="#393C34"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z" fill="#393C34"></path>
+                                  </svg></div>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cart_table outline-solid-1">
+                      <div class="cart_grid is-header w-hidden-tiny">
+                        <div id="w-node-_3825368e-9c6d-a419-e14d-0d0907dc5fc0-f94977d6" class="cart_table-header">
+                          <p class="text-size-regular text-weight-semibold">
+{{ section.settings.text_comment }}
+</p>
+                        </div>
+                      </div>
+                      <div class="cart_content">
+                        <div class="form_field-wrapper"><textarea class="form_input is-alt is-text-field w-input" maxlength="5000" name="note" data-name="field" placeholder="How can we help you?" id="CartNote"></textarea></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endform %}
+                <div class="hide w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="hide w-form-fail">
+                  <div>Oops! Something went wrong while submitting the form.</div>
+                </div>
+                  </div>
+{% endif %}
+              {% if cart.item_count == 0 %}    <div li-if="cart.item_count == 0" class="cart_empty outline-solid-1">
+    
+                <div class="text-size-regular">
+{{ section.settings.text_cart_empty }}
+</div>
+                <div class="button-group">
+                  <a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="button is-icon icon-right w-inline-block">
+                    <div class="button_label">
+{{ section.settings.text_button_text }}
+</div>
+                    <div class="arrow-wrapper">
+                      <div bind="87627e51-1a8f-0697-1618-171297b0803c" class="icon-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.44772 12.4477 4 13 4H19C19.5523 4 20 4.44772 20 5V11C20 11.5523 19.5523 12 19 12C18.4477 12 18 11.5523 18 11V6H13C12.4477 6 12 5.55228 12 5Z" fill="#393C34"></path>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z" fill="#393C34"></path>
+                        </svg></div>
+                    </div>
+                  </a>
+                </div>
+                  </div>
+{% endif %}
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Cart",
+    "class": "section_account",
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Cart"
+        },
+        {
+            "id": "text_continue_shopping",
+            "type": "text",
+            "label": "Continue shopping",
+            "default": "Continue shopping"
+        },
+        {
+            "id": "text_product",
+            "type": "text",
+            "label": "Product",
+            "default": "Product"
+        },
+        {
+            "id": "text_quantity",
+            "type": "text",
+            "label": "Quantity",
+            "default": "Quantity"
+        },
+        {
+            "id": "text_price",
+            "type": "text",
+            "label": "Price",
+            "default": "Price"
+        },
+        {
+            "id": "text_remove",
+            "type": "text",
+            "label": "Remove",
+            "default": "Remove"
+        },
+        {
+            "id": "text_summary",
+            "type": "text",
+            "label": "Summary",
+            "default": "Summary"
+        },
+        {
+            "id": "text_subtotal",
+            "type": "text",
+            "label": "Subtotal",
+            "default": "Subtotal"
+        },
+        {
+            "id": "text_discount",
+            "type": "text",
+            "label": "Discount",
+            "default": "Discount"
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Checkout"
+        },
+        {
+            "id": "text_comment",
+            "type": "text",
+            "label": "Comment",
+            "default": "Add order note"
+        },
+        {
+            "id": "text_cart_empty",
+            "type": "text",
+            "label": "Cart Empty",
+            "default": "No Products yet."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Cart",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "cart"
+        ]
+    }
+} {% endschema %}

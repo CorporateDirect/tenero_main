@@ -1,0 +1,206 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="show-collection_component">
+                {% assign all_tags = show_episodes | map: 'episode_tags' | join: ',' | split: ',' | uniq %}
+                <div class="cms_list-wrapper">
+                  {% assign show_episodes = shop.metaobjects.episode.values | where: 'show', metaobject %}
+                  {% assign episodes_limited = show_episodes | slice: 0, section.settings.max_episodes %}
+                  {% if section.settings.default_sort == 'publish_date_desc' %}
+                  {% assign episodes_sorted = episodes_limited | sort_natural: 'publish_date' | reverse %}
+                  {% else %}
+                  {% assign episodes_sorted = episodes_limited | sort_natural: 'episode_number' | reverse %}
+                  {% endif %}
+                  <div class="cms_list">
+                    {% for episode in episodes_sorted %}    <div data-episode-tags="{{ episode.episode_tags | join: ' ' }}" li-for="episode in episodes_sorted" data-episode-number="{{ episode.episode_number }}" data-episode-title="{{ episode.episode_title }}" data-episode-description="{{ episode.episode_short_description }}" class="cms_item">
+                                    
+                      
+                            <a li-object="episode.episode_url" href="#" class="cms_card-link-wrapper w-inline-block">{{ episode.episode_url }}</a>
+                            
+                      
+                            <div class="cms-show_item-link">
+                        <div class="margin-bottom margin-small">
+                          <div class="show_image-wrapper"><img li-object="episode.episode_thumbnail" loading="lazy" alt="" src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" class="show_image"></div>
+                        </div>
+                        <div class="margin-bottom margin-small">
+                          <div class="item_meta-data">
+                            <div li-object="episode.episode_title" class="episode_title">{{ episode.episode_title }}</div>
+                            <div li-object="episode.episode_number" class="episode_number">{{ episode.episode_number }}</div>
+                            <div class="cms-show-tag_list-wrapper">
+                              <div class="cms-tag_list">
+                                {% for tag in episode.episode_tags %}    <div li-for="tag in episode.episode_tags" class="cms-tag_item">
+                                    
+                                  
+                            <div li-object="tag" class="cms-tag_item-text">{{ tag }}</div>
+                            
+                                
+                        </div>
+{% endfor %}
+                              </div>
+                              <div class="cms_empty-state-wrapper">
+                                <div class="text-size-small is-hidden">
+{{ section.settings.text_ }}
+</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="margin-bottom margin-small">
+                          <h3 li-object="episode.episode_title" class="heading-style-h6 is-card-heading">{{ episode.episode_title }}</h3>
+                        </div>
+                        <div class="description-block">
+                          <div li-object="episode.episode_short_description" class="text-size-small is-card">{{ episode.episode_short_description }}</div>
+                        </div>
+                        <div class="card_bottom-wrapper">
+                          <div class="margin-top margin-xsmall">
+                            <div class="button-group">
+                              <div class="button is-link is-card-link">
+                                <div class="text-size-small text-weight-semibold">Watch now</div><img loading="lazy" src="{{ 'right-chevron.svg' | asset_url }}" alt="" class="image">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                            
+                    
+                        </div>
+{% endfor %}
+                  </div>
+                </div>
+                <div class="cms_list-error_wrapper">
+                  <div class="cms_list-error-text">
+{{ section.settings.text_empty_state_text }}
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code-embed w-embed w-script">
+          <script>
+(function () {
+  function updateEmptyState(scope) {
+    const cards = scope.querySelectorAll('.cms_item');
+    const visibleCards = Array.from(cards).filter(card => card.offsetParent !== null);
+    const emptyState = scope.querySelector('.cms_search-empty-state');
+    if (!emptyState) return;
+    emptyState.style.display = visibleCards.length === 0 ? '' : 'none';
+  }
+  function runEpisodeSearch(scope, query) {
+    const cards = scope.querySelectorAll('.cms_item');
+    const q = (query || '').toLowerCase().trim();
+    cards.forEach(card => {
+      const haystack = [
+        card.dataset.episodeNumber,
+        card.dataset.episodeTitle,
+        card.dataset.episodeDescription,
+        card.dataset.episodeTags
+      ].join(' ').toLowerCase();
+      const match = !q || haystack.includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+    updateEmptyState(scope);
+  }
+  function initEpisodeSearch() {
+    const scope = document.querySelector('[data-episode-search-scope="true"]');
+    if (!scope) return;
+    const input = document.querySelector('[data-episode-search-input="true"]');
+    const submit = document.querySelector('[data-episode-search-submit="true"]');
+    if (!input) return;
+    const live = input.getAttribute('data-live-search') === 'true';
+    // --- Live search (if enabled)
+    if (live) {
+      input.addEventListener('input', () => {
+        runEpisodeSearch(scope, input.value);
+      });
+    }
+    // --- Enter key (always supported)
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        runEpisodeSearch(scope, input.value);
+      }
+    });
+    // --- Submit button (if present)
+    if (submit) {
+      submit.addEventListener('click', e => {
+        e.preventDefault();
+        runEpisodeSearch(scope, input.value);
+      });
+    }
+    // --- Initial state
+    runEpisodeSearch(scope, input.value);
+  }
+  document.addEventListener('DOMContentLoaded', initEpisodeSearch);
+})();
+</script>
+        </div> {% schema %} {
+    "tag": "header",
+    "name": "Episodes List",
+    "class": "section_show",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Episodes List"
+        },
+        {
+            "name": "Episodes List",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "search_placeholder",
+                    "label": "Search placeholder",
+                    "default": "Search episodes\u2026"
+                },
+                {
+                    "type": "text",
+                    "id": "empty_state_text",
+                    "label": "Empty state text",
+                    "default": "No episodes found."
+                },
+                {
+                    "type": "checkbox",
+                    "id": "enable_filters",
+                    "label": "Enable filters",
+                    "default": true
+                }
+            ]
+        },
+        {
+            "id": "checkbox_enable_filters",
+            "type": "checkbox",
+            "label": "enable_filters",
+            "default": true
+        },
+        {
+            "id": "text_search_button_label",
+            "type": "text",
+            "label": "search_button_label",
+            "default": "Lorem Ipsum"
+        },
+        {
+            "id": "number_max_episodes_50",
+            "type": "number",
+            "label": "max_episodes = 50",
+            "default": "\n                              <div style=\"display: none;\"\/>\n                            "
+        },
+        {
+            "id": "text",
+            "type": "text",
+            "default": "No items found."
+        },
+        {
+            "id": "text_empty_state_text",
+            "type": "text",
+            "label": "empty_state_text",
+            "default": "This is some text inside of a div block."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Episodes List",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

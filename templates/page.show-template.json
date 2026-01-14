@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "episodes_list": {
+            "type": "episodes_list"
+        }
+    },
+    "layout": "page.show-template",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "hero",
+        "episodes_list"
+    ]
+}

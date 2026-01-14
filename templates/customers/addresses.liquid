@@ -1,0 +1,148 @@
+{% layout 'customers.addresses' %}
+<div li-content-for-layout="" class="main-wrapper" section-wrapper="div.main-wrapper">
+      {% section 'account_hero' %}
+      <div class="section_account">
+        <div class="padding-global padding-section-small">
+          <div class="container-large">
+            <div x-data="{modal: 99}" class="address_grid">
+              {% for address in customer.addresses %}    <div li-for="address in customer.addresses" class="address_wrapper">
+                                    
+                
+                            <div class="address_container is-header">
+                  {% if address == customer.default_address %}    <div li-if="address == customer.default_address" class="text-size-small">
+    Main Address    </div>
+{% endif %}
+                  {% if address != customer.default_address %}    <div li-if="address != customer.default_address" class="text-size-small">
+    Other Address    </div>
+{% endif %}
+                </div>
+                            
+                
+                            <div class="address_container">
+                  <div li-object="address | format_address" class="text-size-small">{{ address | format_address }}</div>
+                  <div class="addresses_edit">
+                    <div class="address_modal" x-bind:aria-hidden="modal === {{forloop.index}} ? 'false' : 'true'" aria-modal="true" x-transition="" x-on:keydown.escape.window="open = 99" x-show="modal === {{forloop.index}}" role="dialog" x-trap.inert="modal === {{forloop.index}}" x-trap.noscroll="modal === {{forloop.index}}" id="modal-{{forloop.index}}" x-cloak="">
+                      <div x-on:click="modal = 99" class="address_modal-close"></div>
+                      <div class="address_form">
+                        <div class="address_form-block w-form">
+                          {% form 'customer_address', address, class: 'address_form' %}
+<div class="addresses_form-grid">
+                              <h3 id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7a2-a9db412b" class="heading-style-h3">Edit Address</h3>
+                              <div class="form_field-wrapper">
+                                <div class="form_field-label">First Name</div><input class="form_input is-secondary w-input" li-object:value="form.first_name" maxlength="256" name="address[first_name]" data-name="Address First Name" placeholder="" type="text" id="Address-First-Name-4" required="" value="{{ form.first_name }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7a8-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Last Name</div><input class="form_input w-input" li-object:value="form.last_name" maxlength="256" name="address[last_name]" data-name="Address Last Name" placeholder="" type="text" id="Address-Last-Name-4" required="" value="{{ form.last_name }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7ac-a9db412b" class="form_field-wrapper">
+                                <div class="form_fiield-label">Company</div><input class="form_input is-secondary w-input" li-object:value="form.company" maxlength="256" name="address[company]" data-name="Address Company" placeholder="" type="text" id="Address-Company-4" required="" value="{{ form.company }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7b0-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Address</div><input class="form_input is-secondary w-input" li-object:value="form.address1" maxlength="256" name="address[address1]" data-name="Address Address" placeholder="" type="text" id="Address-Address-2" required="" value="{{ form.address1 }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7b4-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Address 2</div><input class="form_input is-secondary w-input" li-object:value="form.address2" maxlength="256" name="address[address2]" data-name="Address Address" placeholder="" type="text" id="Address-Address" required="" value="{{ form.address2 }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7b8-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Zip</div><input class="form_input is-secondary w-input" li-object:value="form.zip" maxlength="256" name="address[zip]" data-name="Address Zip" placeholder="" type="text" id="Address-Zip-4" required="" value="{{ form.zip }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7bc-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">City</div><input class="form_input is-secondary w-input" li-object:value="form.city" maxlength="256" name="address[city]" data-name="Address City" placeholder="" type="text" id="Address-City-4" required="" value="{{ form.city }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7c0-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Country</div><select data-default="{{ form.country }}" class="form_input is-secondary" name="address[country]"></select>
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7c4-a9db412b" class="form_field-wrapper">
+                                <div class="form_field-label">Phone Number</div><input class="form_input is-secondary w-input" li-object:value="form.phone" maxlength="256" name="address[phone]" data-name="Address Phone 2" placeholder="" type="text" required="" value="{{ form.phone }}">
+                              </div>
+                              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7c8-a9db412b" class="form_checkbox">
+                                <div li-object="form.set_as_default_checkbox" id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7c9-a9db412b" class="form_checkbox-icon">{{ form.set_as_default_checkbox }}</div>
+                                <div class="text-size-small">Save as default</div>
+                              </div><input type="submit" data-wait="Please wait..." id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7cc-a9db412b" class="button w-button" value="Save">
+                              <a aria-controls="modal-{{forloop.index}}" x-on:click="modal = 99" id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7cd-a9db412b" href="#" class="text-style-link text-size-regular">Cancel</a>
+                            </div>
+                          {% endform %}
+                          <div class="hide w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                          </div>
+                          <div class="hide w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a id="openModalButton-{{forloop.index}}" x-on:click="modal = {{forloop.index}}" aria-haspopup="dialog" aria-controls="modal-{{forloop.index}}" href="#" class="text-style-regular text-style-link">Edit</a>
+                    <div>
+                      <div class="address_delete-button hide"></div>
+                      <div class="hide w-embed">
+                        <form class="address-delete-form" method="post" action="/account/addresses/{{ address.id }}">
+                          <input type="hidden" name="_method" value="delete">
+                          <button type="submit" class="addresses_delete-button" aria-label="Delete Address"></button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                            
+              
+                        </div>
+{% endfor %}
+              <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7da-a9db412b" class="address_wrapper is-new">
+                <div class="address_padding">
+                  <div class="address_modal" x-bind:aria-hidden="modal === 100 ? 'false' : 'true'" aria-modal="true" x-transition="" x-on:keydown.escape.window="open = 99" x-show="modal === 100" role="dialog" x-trap.inert="modal === 100" x-trap.noscroll="modal === 100" id="modal-100" x-cloak="">
+                    <div x-on:click="modal = 99" class="address_modal-close"></div>
+                    <div class="address_form">
+                      <div class="address_form-block w-form">
+                        {% form 'customer_address', customer.new_address, class: 'address_form-wrapper' %}
+<div class="addresses_form-grid">
+                            <h3 id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7e2-a9db412b" class="heading-style-h5">New Adresse</h3>
+                            <div class="form_field-wrapper">
+                              <div class="form_field-label is-alt">First Name</div><input class="form_input is-secondary w-input" maxlength="256" name="address[first_name]" data-name="Address First Name" placeholder="" type="text" id="Address-First-Name" required="">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7e8-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">Last Name</div><input class="form_input is-secondary w-input" maxlength="256" name="address[last_name]" data-name="Address Last Name" placeholder="" type="text" id="Address-Last-Name" required="">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7ec-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">Company</div><input class="form_input is-secondary w-input" maxlength="256" name="address[company]" data-name="Address Company" placeholder="" type="text" id="Address-Company">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7f0-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">Address</div><input class="form_input is-secondary w-input" maxlength="256" name="address[address1]" data-name="Address Address" placeholder="" type="text" id="Address-Mailing-Address">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7f4-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">Address 2</div><input class="form_input is-secondary w-input" maxlength="256" name="address[address2]" data-name="Address Address 2" placeholder="" type="text" id="Address-Mailing-Line-Two">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7f8-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">Zip</div><input class="form_input is-secondary w-input" maxlength="256" name="address[zip]" data-name="Address Zip" placeholder="" type="text" id="Address-Zip">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de7fc-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label is-alt">City</div><input class="form_input is-secondary w-input" maxlength="256" name="address[city]" data-name="Address City" placeholder="" type="text" id="Address-City">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de800-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label">Country</div><select li-object="all_country_option_tags" data-default="{{ form.country }}" class="form_input" name="address[country]">{{ all_country_option_tags }}</select>
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de805-a9db412b" class="form_field-wrapper">
+                              <div class="form_field-label">Phone Number</div><input class="form_input is-secondary w-input" maxlength="256" name="address[phone]" data-name="Address Phone" placeholder="Your phone number" type="text" id="Address-Phone-2">
+                            </div>
+                            <div id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de809-a9db412b" class="form_checkbox">
+                              <div li-object="form.set_as_default_checkbox" id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de80a-a9db412b" class="form_checkbox-icon">{{ form.set_as_default_checkbox }}</div>
+                              <div class="text-size-small">Save as default</div>
+                            </div><input type="submit" data-wait="Please wait..." id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de80d-a9db412b" class="button w-button" value="Create">
+                            <a aria-controls="modal-100" x-on:click="modal = 99" id="w-node-_59d483b5-9b8a-fac0-08ee-2ded1c7de80e-a9db412b" href="#" class="text-style-link text-size-regular">Cancel</a>
+                          </div>
+                        {% endform %}
+                        <div class="w-form-done">
+                          <div>Thank you! Your submission has been received!</div>
+                        </div>
+                        <div class="w-form-fail">
+                          <div>Oops! Something went wrong while submitting the form.</div>
+                        </div>
+                      </div>
+                    </div><img loading="lazy" src="{{ 'plus.svg' | asset_url }}" alt="" class="addresses_plus"><button x-on:click="modal = 100" id="openModalButton-100" aria-label="Create new address" aria-controls="modal-100" aria-haspopup="dialog" class="address_opener"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
