@@ -1,0 +1,349 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="margin-bottom margin-xxlarge">
+                <div class="max-width-large">
+                  <div class="margin-bottom margin-small">
+                    <h1 li-object="collection.title" class="heading-style-h2">{{ collection.title }}</h1>
+                  </div>
+                  <div class="text-rich-text w-richtext"> {{ section.settings.richtext_page_description }} </div>
+                </div>
+              </div>
+              <div class="ecommerce-filters_component">
+                {% paginate collection.products by 18 %}
+    <div li-paginate:by="18" li-paginate="collection.products" class="ecommerce-filters_layout" by="18">
+                  <div id="w-node-d58bd370-7061-cc88-29b8-f7ef9d0e0c21-0993d770" data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c21" class="ecommerce-filters_filters-wrapper">
+                    <div id="w-node-d58bd370-7061-cc88-29b8-f7ef9d0e0c22-0993d770" class="ecommerce-filters_form-block w-form">
+                      <form id="wf-form-Filter-1" name="wf-form-Filter-1" data-name="Filter 1" method="get" fs-cmsfilter-element="filters" class="ecommerce-filters_form" data-wf-page-id="696664b557df938d0993d770" data-wf-element-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c23">
+                        <div id="w-node-d58bd370-7061-cc88-29b8-f7ef9d0e0c24-0993d770" class="ecommerce-filters_form-header">
+                          <div class="filters_heading">Filters</div>
+                          <a fs-cmsfilter-element="reset" href="#" class="button is-link hide-tablet w-inline-block">
+                            <div class="text-size-small">
+{{ section.settings.text_clear_all }}
+</div>
+                          </a>
+                        </div>
+                        <div class="ecommerce-filters_results-wrapper">
+                          <div class="ecommerce-filters_results-text">Showing <span li-object="collection.all_products_count">{{ collection.all_products_count }}</span> products</div>
+                        </div>
+                        <div li-content-for-blocks="Collection Links" class="filter_category-list-wrapper">
+{% for block in section.blocks %}
+{% case block.type %}
+{% when '@app' %}
+{% render block %}
+
+                          <div class="filters_category-list">
+                            {% for product in section.settings.collection_collection.products limit: section.settings.collection_collection_limit %}
+<a href="{{ block.settings.collection.url }}" class="filters_category-item w-inline-block">
+    
+                              
+    <div li-object="block.settings.collection.title" class="filters-category_label">{{ block.settings.collection.title }}</div>
+    
+                            
+</a>
+{% endfor %}
+                          </div>
+                        {% endcase %}
+{% endfor %}
+
+    </div>
+                        <div class="filters_filter-group-list">
+                          <div class="filters_filter-group">
+                            <div data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c37" class="filters_filter-group-heading">
+                              <div li-object="filter.label" class="heading-style-h6">{{ filter.label }}</div>
+                              <div bind="cca3ad72-028b-aa3b-5899-472a49c9a064" class="filters_accordion-icon w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3977 15.6629C12.178 15.8826 11.8219 15.8826 11.6022 15.6629L5.86739 9.92804C5.64772 9.70837 5.64772 9.35227 5.86739 9.13259L6.13256 8.86739C6.35222 8.64772 6.70838 8.64772 6.92805 8.86739L12 13.9393L17.0719 8.86739C17.2916 8.64772 17.6477 8.64772 17.8674 8.86739L18.1326 9.13259C18.3522 9.35227 18.3522 9.70837 18.1326 9.92804L12.3977 15.6629Z" fill="currentColor"></path>
+                                </svg></div>
+                            </div>
+                            <div style="height:0px" class="filters_filter-options">
+                              <div class="filters_list-wrapper">
+                                <div class="filters_list">
+                                  {% for filter_value in filter.values %}    <div li-for="filter_value in filter.values" class="filters_item">
+                                    
+                                    
+                            <a href="#" class="filter_form_checkbox w-inline-block">
+                                      <div class="filters_form-checkbox-icon"></div>
+                                      <div class="filter_form_checkbox-label"><span li-object="filter_value.label | append: ' '" class="text-size-small">{{ filter_value.label | append: ' ' }}</span> (<span>0</span>)</div>
+                                    </a>
+                            
+                                  
+                        </div>
+{% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="filters_filter-group">
+                            <div data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c4b" class="filters_filter-group-heading">
+                              <div li-object="filter.label" class="heading-style-h6">{{ filter.label }}</div>
+                              <div class="filters_accordion-icon w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3977 15.6629C12.178 15.8826 11.8219 15.8826 11.6022 15.6629L5.86739 9.92804C5.64772 9.70837 5.64772 9.35227 5.86739 9.13259L6.13256 8.86739C6.35222 8.64772 6.70838 8.64772 6.92805 8.86739L12 13.9393L17.0719 8.86739C17.2916 8.64772 17.6477 8.64772 17.8674 8.86739L18.1326 9.13259C18.3522 9.35227 18.3522 9.70837 18.1326 9.92804L12.3977 15.6629Z" fill="currentColor"></path>
+                                </svg></div>
+                            </div>
+                            <div style="height:0px" class="filters_filter-options">
+                              <div class="filters_list-wrapper">
+                                <div class="filters_list">
+                                  {% for filter_value in filter.values %}    <div li-for="filter_value in filter.values" class="filters_item">
+                                    
+                                    
+                            <a href="#" class="filter_form_checkbox w-inline-block">
+                                      <div class="filters_form-checkbox-icon"></div>
+                                      <div class="filter_form_checkbox-label"><span li-object="filter_value.label | append: ' '" class="text-size-small">{{ filter_value.label | append: ' ' }}</span> (<span>0</span>)</div>
+                                    </a>
+                            
+                                  
+                        </div>
+{% endfor %}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filters_tablet-modal-menu">
+                          <a href="#" class="button is-link w-inline-block">
+                            <div>Clear all</div>
+                          </a><input type="submit" data-wait="" data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c62" class="button is-navigation w-button" value="Apply">
+                        </div>
+                      </form>
+                      <div class="w-form-done">
+                        <div>Thank you! Your submission has been received!</div>
+                      </div>
+                      <div class="w-form-fail">
+                        <div>Oops! Something went wrong while submitting the form.</div>
+                      </div>
+                    </div>
+                    <a data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c69" href="#" class="ecommerce-filters_tablet-modal-close-button w-inline-block"><img alt="" src="{{ 'icon_close-modal.svg' | asset_url }}" class="icon-1x1-small"></a>
+                    <div class="filter_filters-wrapper">
+                      <a data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c6c" href="#" class="filter_tablet-modal-close-button w-inline-block"><img alt="" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/624380709031623afe4aee7e_icon_close-modal.svg" class="icon-1x1-small"></a>
+                    </div>
+                  </div>
+                  <a data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c6e" href="#" class="ecommerce-filters_tablet-filters-button w-inline-block"><img loading="lazy" src="{{ 'icon-filters.svg' | asset_url }}" alt="" class="button-icon-left">
+                    <div class="text-block">Filters</div>
+                  </a>
+                  <div id="w-node-d58bd370-7061-cc88-29b8-f7ef9d0e0c72-0993d770" class="ecommerce-filters_feed">
+                    <div class="ecommerce-filters_feed-header">
+                      <div class="filter_tags-wrapper">
+                        {% for filters in collection.filters %}    <div li-for="filters in collection.filters" class="filter_tags-inner-wrapper">
+                                    
+                          
+                            {% for filter_value in filters.active_values %}    <div li-for="filter_value in filters.active_values" class="filter_tag">
+                                    
+                            
+                            <div li-object="filter_value.label">{{ filter_value.label }}</div>
+                            
+                            
+                            <a aria-label="Remove Filter" li-object:href="filter_value.url_to_remove" href="{{ filter_value.url_to_remove }}" class="filter_close w-inline-block">
+                              <div class="filter_close-icon w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M17.1266 16.773L16.7729 17.1266C16.5777 17.3218 16.2611 17.3218 16.0658 17.1266L12 13.0607L7.9341 17.1265C7.73888 17.3218 7.42229 17.3218 7.22702 17.1265L6.87347 16.773C6.6782 16.5777 6.6782 16.2612 6.87347 16.0659L10.9394 12L6.87347 7.93413C6.6782 7.73891 6.6782 7.42232 6.87347 7.22705L7.22702 6.8735C7.42228 6.67824 7.73888 6.67824 7.9341 6.8735L12 10.9394L16.0658 6.8735C16.2611 6.67824 16.5777 6.67824 16.7729 6.8735L17.1266 7.22705C17.3218 7.42231 17.3218 7.73891 17.1266 7.93413L13.0607 12L17.1266 16.0659C17.3218 16.2612 17.3218 16.5777 17.1266 16.773Z" fill="currentColor"></path>
+                                </svg></div>
+                            </a>
+                            
+                          
+                        </div>
+{% endfor %}
+                            
+                        
+                        </div>
+{% endfor %}
+                      </div>
+                      <div class="sort_wrapper"><select id="sort-by" li-for:inside="option in collection.sort_options" class="sort_select filter_checkbox">
+        {% for option in collection.sort_options %}                            
+                          
+                            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
+                            
+                        
+                    {% endfor %}    </select></div>
+                    </div>
+                    <div class="product_component">
+                      {% if section.blocks.size > 0 %}    <div li-if="section.blocks.size > 0" class="product_list-wrapper w-dyn-list">
+    
+                        <div role="list" class="product_list w-dyn-items">
+                          {% for product in collection.products %}    <div li-for="product in collection.products" data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c85" role="listitem" class="product_item w-dyn-item">
+                                    
+                            
+                            <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-item_component" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+                              <div class="product-item_container top">
+                                <div class="product-item_image-link">
+                                  <a li-object:href="product.url" href="{{ product.url }}" class="product-item_image-wrapper w-inline-block"><img li-object:src="product.featured_image | image_url: width: 450" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" src="{{ product.featured_image | image_url: width: 450 }}" loading="lazy" class="product-item_image"></a>
+                                  <div class="product-item_tag_list">
+                                    {% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-item_tag is-small is-red">
+    Sold out    </div>
+{% endif %}
+                                    {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price" class="product-item_tag is-small is-sale">
+    Save <span li-object="product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%'" class="sale-percent">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%' }}</span> <span li-object="product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | money_without_trailing_zeros" class="sale-value">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>     </div>
+{% endif %}
+                                    {% if product.tags contains 'New' and product.selected_or_first_available_variant.available and not (product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold) and not (product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price) %}    <div li-if="product.tags contains 'New' and product.selected_or_first_available_variant.available and not (product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold) and not (product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price)" class="product-item_tag is-small is-new">
+    New    </div>
+{% endif %}
+                                    {% if product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold %}    <div li-if="product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold" class="product-item_tag is-small is-low">
+    Low stock    </div>
+{% endif %}
+                                  </div>
+                                </div>
+                                <div class="spacer-xxsmall"></div>
+                              </div>
+                              <div class="product-item_container bottom">
+                                <a li-object:href="product.url" href="{{ product.url }}" class="product-item_text-link w-inline-block">
+                                  <div class="product-item_left">
+                                    <div li-object="product.title" class="heading-style-h6">{{ product.title }}</div>
+                                    <div li-object="product.vendor" class="text-size-small">{{ product.vendor }}</div>
+                                  </div>
+                                  <div class="product-item_price">
+                                    {% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
+    
+                                      <div li-object="product.compare_at_price | money" class="text-size-small text-style-strikethrough text-style-muted">{{ product.compare_at_price | money }}</div>
+                                        </div>
+{% endif %}
+                                    <div li-object="product.price | money" class="text-size-small">{{ product.price | money }}</div>
+                                  </div>
+                                </a>
+                                <div class="spacer-small"></div>
+                                <div class="margin-top-auto">
+                                  <div class="product-item_form-wrapper">
+                                    <a li-element="add-to-cart" href="#" class="button is-icon icon-right w-inline-block" @click="addToCart($event, true)" :disabled="!addToCartButton">
+                                      <div class="button_label">
+{{ section.settings.text_button_text }}
+</div>
+                                      <div class="arrow-wrapper">
+                                        <div bind="87627e51-1a8f-0697-1618-171297b0803c" class="icon-embed w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5C12 4.44772 12.4477 4 13 4H19C19.5523 4 20 4.44772 20 5V11C20 11.5523 19.5523 12 19 12C18.4477 12 18 11.5523 18 11V6H13C12.4477 6 12 5.55228 12 5Z" fill="#393C34"></path>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7071 4.29289C20.0976 4.68342 20.0976 5.31658 19.7071 5.70711L5.70711 19.7071C5.31658 20.0976 4.68342 20.0976 4.29289 19.7071C3.90237 19.3166 3.90237 18.6834 4.29289 18.2929L18.2929 4.29289C18.6834 3.90237 19.3166 3.90237 19.7071 4.29289Z" fill="#393C34"></path>
+                                          </svg></div>
+                                      </div>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          
+                        </div>
+{% endfor %}
+                        </div>
+                        <div bind="3425b37e-6d18-a05f-7067-9fc48a61cfde" class="w-dyn-empty">
+                          <div>No items found.</div>
+                        </div>
+                          </div>
+{% endif %}
+                    </div>
+                    {% unless section.blocks.size > 0 %}    <div li-unless="section.blocks.size > 0" class="filters_empty">
+    
+                      <div class="margin-bottom margin-xxsmall">
+                        <div class="margin-bottom margin-small">
+                          <div class="heading-style-h6">No results found.</div>
+                        </div>
+                        <div class="text-size-regular align-center">There are no results with this criteria. Try changing your search.<a href="https://library.relume.io/components?elements=video-lightbox&layout=text-align-left%7Ctext-align-center#"><strong><br></strong></a>
+                        </div>
+                      </div>
+                        </div>
+{% endunless %}
+                    {% if paginate.pages > 1 %}    <nav li-if="paginate.pages > 1" class="pagination_component">
+    
+                      <ul role="list" class="pagination_list w-list-unstyled">
+                        {% if paginate.previous %}    <li li-if="paginate.previous" class="pagination_item">
+    
+                          <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="button is-navigation w-inline-block">
+                            <div class="pagination_arrow w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 13 8" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                <path d="M1.67318 0.589844L6.26318 5.16984L10.8532 0.589844L12.2632 1.99984L6.26318 7.99984L0.263184 1.99984L1.67318 0.589844Z" fill="currentColor"></path>
+                              </svg></div>
+                            <div>Back</div>
+                          </a>
+                            </li>
+{% endif %}
+                        {% if paginate.next %}    <li li-if="paginate.next" class="pagination_item">
+    
+                          <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="button is-navigation w-inline-block">
+                            <div>Next</div>
+                            <div class="pagination_arrow is-right w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 13 8" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                <path d="M1.67318 0.589844L6.26318 5.16984L10.8532 0.589844L12.2632 1.99984L6.26318 7.99984L0.263184 1.99984L1.67318 0.589844Z" fill="currentColor"></path>
+                              </svg></div>
+                          </a>
+                            </li>
+{% endif %}
+                      </ul>
+                        </nav>
+{% endif %}
+                  </div>
+                </div>{% endpaginate %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code-embed w-embed w-script">
+          <script>
+//sortierung
+  Shopify.queryParams = {};
+  // Preserve existing query parameters
+  if (location.search.length) {
+    var params = location.search.substr(1).split('&');
+    for (var i = 0; i < params.length; i++) {
+      var keyValue = params[i].split('=');
+      if (keyValue.length) {
+        Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+      }
+    }
+  }
+  // Update sort_by query parameter on select change
+  document.querySelector('#sort-by').addEventListener('change', function(e) {
+    var value = e.target.value;
+    Shopify.queryParams.sort_by = value;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+</script>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Collection Products",
+    "class": "section_filter",
+    "blocks": [
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "richtext_page_description",
+            "type": "richtext",
+            "label": "Page Description",
+            "default": "<p>\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n                  <\/p>"
+        },
+        {
+            "id": "text_clear_all",
+            "type": "text",
+            "label": "Clear all",
+            "default": "Clear all"
+        },
+        {
+            "id": "collection_collection",
+            "type": "collection",
+            "label": "Collection"
+        },
+        {
+            "type": "range",
+            "id": "collection_collection_limit",
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "label": "Limit: Collection",
+            "default": 6
+        },
+        {
+            "id": "text_button_text",
+            "type": "text",
+            "label": "Button Text",
+            "default": "Add to Cart"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Collection Products",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "collection"
+        ]
+    }
+} {% endschema %}

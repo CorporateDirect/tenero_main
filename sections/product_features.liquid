@@ -1,0 +1,114 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="layout_component">
+                <div class="w-layout-grid layout_content feature-18">
+                  <div class="layout_content-left">
+                    <div class="margin-bottom margin-small">
+                      <h2 class="heading-style-h3">
+{{ section.settings.text_heading }}
+</h2>
+                    </div>
+                    <div class="margin-bottom margin-small">
+                      <p class="text-size-regular">
+{{ section.settings.text_paragraph }}
+</p>
+                    </div>
+                    <div li-content-for-blocks="" class="layout_item-list">
+{% for block in section.blocks %}
+{% case block.type %}
+{% when '@app' %}
+{% render block %}
+
+                      {% when 'product-feature' %}
+            <div li-block="Product Feature" id="w-node-b5ec69bb-a794-b7a0-26a1-b85c803531e5-35162214" class="layout_item">
+                    
+                        
+                    <div class="layout_item-icon-wrapper">
+                          {% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: class: 'icon-embed-xxsmall w-embed' }}
+{% else %}
+<img class="icon-embed-xxsmall w-embed">
+{% endif %}
+                        </div>
+                    
+                        
+                    <div class="layout_item-text-wrapper">
+                          <p class="text-size-small">
+{{ block.settings.text_text }}
+</p>
+                        </div>
+                    
+                      
+                </div>
+                    {% endcase %}
+{% endfor %}
+
+    </div>
+                  </div>
+                  <div class="layout_image-wrapper">{% if section.settings.image_image %}
+{{ section.settings.image_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'layout_image' }}
+{% else %}
+<img loading="lazy" alt="" src="https://cdn.prod.website-files.com/6939dccb328f7fb90eab5793/6939f5710372fc0825065fcc_square-placeholder.png" class="layout_image">
+{% endif %}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Product Features",
+    "class": "section_layout",
+    "blocks": [
+        {
+            "name": "Product Feature",
+            "type": "product-feature",
+            "settings": [
+                {
+                    "id": "image_icon",
+                    "type": "image_picker",
+                    "label": "Icon"
+                },
+                {
+                    "id": "text_text",
+                    "type": "text",
+                    "label": "Text",
+                    "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                }
+            ]
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Long heading is what you see here in this feature section"
+        },
+        {
+            "id": "text_paragraph",
+            "type": "text",
+            "label": "Paragraph",
+            "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."
+        },
+        {
+            "id": "image_image",
+            "type": "image_picker",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Features",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "product-feature"
+                }
+            ]
+        }
+    ]
+} {% endschema %}

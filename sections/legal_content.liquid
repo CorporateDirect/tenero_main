@@ -1,0 +1,35 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-bottom padding-xhuge">
+              <div class="legal-content_component">
+                <div id="w-node-b2abed3f-3645-e9eb-86e4-4bb5286afcbb-0d02434c" class="max-width-large">
+                  <div class="text-rich-text w-richtext"> {{ section.settings.richtext_privacy_policy }} </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "Legal Content",
+    "class": "section_legal",
+    "settings": [
+        {
+            "id": "richtext_privacy_policy",
+            "type": "richtext",
+            "label": "Privacy Policy",
+            "default": "<p>\n                    Heading 2\n                    <strong>Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam. Tempor integer aliquam in vitae malesuada fringilla.<\/strong>\n                    Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis montes, sit sit. Tellus aliquam enim urna, etiam. <\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Legal Content",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "legal"
+        ]
+    }
+} {% endschema %}

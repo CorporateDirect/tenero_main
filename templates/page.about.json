@@ -1,0 +1,33 @@
+{
+    "sections": {
+        "hero": {
+            "type": "hero"
+        },
+        "timeline": {
+            "type": "timeline",
+            "blocks": {
+                "milestone": {
+                    "name": "Milestone",
+                    "type": "milestone"
+                }
+            },
+            "block_order": [
+                "milestone"
+            ]
+        },
+        "text_centered": {
+            "type": "text_centered"
+        },
+        "image_with_text": {
+            "type": "image_with_text"
+        }
+    },
+    "layout": "page.about",
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "hero",
+        "timeline",
+        "text_centered",
+        "image_with_text"
+    ]
+}

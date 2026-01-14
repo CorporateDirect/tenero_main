@@ -1,0 +1,199 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-large">
+              <div class="layout_component">
+                <div class="w-layout-grid layout_content-timeline">
+                  <div class="layout_content-left position-sticky">
+                    <div class="margin-bottom margin-xsmall">
+                      <div class="text-style-tagline">
+{{ section.settings.text_tagline }}
+</div>
+                    </div>
+                    <h2 class="heading-style-h3">
+{{ section.settings.text_heading }}
+</h2>
+                  </div>
+                  <div class="layout_content-right">
+                    <div data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee77f" class="layout_timeline-wrapper">
+                      <div class="layout_progress-bar-wrapper">
+                        <div class="layout_progress-bar"></div>
+                      </div>
+                      <div li-content-for-blocks="" class="layout_timeline-step-wrapper">
+{% for block in section.blocks %}
+{% case block.type %}
+{% when '@app' %}
+{% render block %}
+
+                        {% when 'milestone' %}
+            <div li-block="Milestone" data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee783" class="w-layout-grid layout_timeline-step">
+                    
+                          
+                    <div class="layout_timeline-left">
+                            <div class="layout_timeline-icon-wrapper">{% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: data-w-id: 'd2d675de-f39f-d02c-a84f-4df5f96ee786', loading: 'lazy', class: 'icon-1x1-small' }}
+{% else %}
+<img data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee786" alt="" src="{{ 'step-1.svg' | asset_url }}" loading="lazy" class="icon-1x1-small">
+{% endif %}</div>
+                          </div>
+                    
+                          
+                    <div data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee787" class="layout_timeline-right">
+                            <div class="margin-bottom margin-xsmall">
+                              <h3 class="heading-style-h6">
+{{ block.settings.text_headline }}
+</h3>
+                            </div>
+                            <div class="text-size-regular"> {{ block.settings.richtext_description }} </div>
+                          </div>
+                    
+                        
+                </div>
+                        {% when 'milestone' %}
+            <div li-block="Milestone" data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee78d" class="w-layout-grid layout_timeline-step">
+                    
+                          
+                    <div class="layout_timeline-left">
+                            <div class="layout_timeline-icon-wrapper">{% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: data-w-id: 'd2d675de-f39f-d02c-a84f-4df5f96ee790', loading: 'lazy', class: 'icon-1x1-small' }}
+{% else %}
+<img data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee790" alt="" src="{{ 'step-2.svg' | asset_url }}" loading="lazy" class="icon-1x1-small">
+{% endif %}</div>
+                          </div>
+                    
+                          
+                    <div data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee791" class="layout_timeline-right">
+                            <div class="margin-bottom margin-xsmall">
+                              <h3 class="heading-style-h6">
+{{ block.settings.text_headline }}
+</h3>
+                            </div>
+                            <div class="text-size-regular"> {{ block.settings.richtext_description }} </div>
+                          </div>
+                    
+                        
+                </div>
+                        {% when 'milestone' %}
+            <div li-block="Milestone" data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee797" class="w-layout-grid layout_timeline-step">
+                    
+                          
+                    <div class="layout_timeline-left">
+                            <div class="layout_timeline-icon-wrapper">{% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: data-w-id: 'd2d675de-f39f-d02c-a84f-4df5f96ee79a', loading: 'lazy', class: 'icon-1x1-small' }}
+{% else %}
+<img data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee79a" alt="" src="{{ 'step-3.svg' | asset_url }}" loading="lazy" class="icon-1x1-small">
+{% endif %}</div>
+                          </div>
+                    
+                          
+                    <div data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee79b" class="layout_timeline-right">
+                            <div class="margin-bottom margin-xsmall">
+                              <h3 class="heading-style-h6">
+{{ block.settings.text_headline }}
+</h3>
+                            </div>
+                            <div class="text-size-regular"> {{ block.settings.richtext_description }} </div>
+                          </div>
+                    
+                        
+                </div>
+                        {% when 'milestone' %}
+            <div li-block="Milestone" data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee7a1" class="w-layout-grid layout_timeline-step">
+                    
+                          
+                    <div class="layout_timeline-left">
+                            <div class="layout_timeline-icon-wrapper">{% if block.settings.image_icon %}
+{{ block.settings.image_icon | image_url: width: 1000 | image_tag: data-w-id: 'd2d675de-f39f-d02c-a84f-4df5f96ee7a4', loading: 'lazy', class: 'icon-1x1-small' }}
+{% else %}
+<img data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee7a4" alt="" src="{{ 'step-4.svg' | asset_url }}" loading="lazy" class="icon-1x1-small">
+{% endif %}</div>
+                          </div>
+                    
+                          
+                    <div data-w-id="d2d675de-f39f-d02c-a84f-4df5f96ee7a5" class="layout_timeline-right">
+                            <div class="margin-bottom margin-xsmall">
+                              <h3 class="heading-style-h6">
+{{ block.settings.text_headline }}
+</h3>
+                            </div>
+                            <div class="text-size-regular"> {{ block.settings.richtext_description }} </div>
+                          </div>
+                    
+                        
+                </div>
+                      {% endcase %}
+{% endfor %}
+
+    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Timeline",
+    "class": "section_layout",
+    "blocks": [
+        {
+            "name": "Milestone",
+            "type": "milestone",
+            "settings": [
+                {
+                    "id": "image_icon",
+                    "type": "image_picker",
+                    "label": "Icon"
+                },
+                {
+                    "id": "text_headline",
+                    "type": "text",
+                    "label": "Headline",
+                    "default": "Subheading one"
+                },
+                {
+                    "id": "richtext_description",
+                    "type": "richtext",
+                    "label": "Description",
+                    "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.<\/p>"
+                }
+            ]
+        },
+        {
+            "type": "@app"
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_tagline",
+            "type": "text",
+            "label": "Tagline",
+            "default": "OurJourney"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Medium length section heading goes here"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Timeline",
+            "category": "Content",
+            "blocks": [
+                {
+                    "type": "milestone"
+                },
+                {
+                    "type": "milestone"
+                },
+                {
+                    "type": "milestone"
+                },
+                {
+                    "type": "milestone"
+                }
+            ]
+        }
+    ]
+} {% endschema %}
