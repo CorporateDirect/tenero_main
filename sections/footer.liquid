@@ -153,13 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
               </div>
             </div>
           </div>
-        </div>
-        <div class="hide w-embed">{
-          "type": "link_list",
-          "id": "footer_menu",
-          "label": "Footer Menu",
-          "default": "footer"
-          }</div> {% schema %} {
+        </div> {% schema %} {
     "tag": "footer",
     "name": "Footer",
     "class": "section_footer",
@@ -187,6 +181,16 @@ document.addEventListener('DOMContentLoaded', function() {
             "type": "text",
             "label": "Footer Text",
             "default": "Join our newsletter to stay up to date on features and releases."
+        },
+        {
+            "type": "header",
+            "content": "Navigation"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Footer Menu",
+            "default": "footer"
         }
     ],
     "presets": [

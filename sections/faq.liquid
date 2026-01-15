@@ -4,11 +4,11 @@
               <div class="layout_content margin-bottom margin-medium">
                 <div class="max-width-large">
                   <div class="margin-bottom margin-small">
-                    <h2 class="heading-style-h2">
+                    <h2 scrub-each-word="" text-split="" class="heading-style-h3">
 {{ section.settings.text_heading }}
 </h2>
                   </div>
-                  <div class="text-rich-text w-richtext"> {{ section.settings.richtext_richtext }} </div>
+                  <div lines-reveal="" class="text-rich-text w-richtext"> {{ section.settings.richtext_richtext }} </div>
                 </div>
               </div>
               <ul x-data="{open: 1}" role="list" class="faq_list">
@@ -18,7 +18,7 @@
                                     
                   
                                     <div class="faq_item-heading">
-                    <h3 id="faq-heading-{{forloop.index}}" class="text-size-medium text-weight-semibold">
+                    <h3 id="faq-heading-{{forloop.index}}" text-split="" scrub-each-word="" class="text-size-medium text-weight-semibold">
 {{ block.settings.text_heading }}
 </h3>
                     <div x-bind:style="open === {{ forloop.index }} ? 'transform: rotate(180deg)' : 'transform: rotate(0deg)'" class="faq_icon w-embed"><svg width="25" height="25" viewbox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
