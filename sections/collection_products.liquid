@@ -159,9 +159,6 @@
     
                         <div role="list" class="product_list w-dyn-items">
                           {% for product in collection.products %}    <div li-for="product in collection.products" data-w-id="d58bd370-7061-cc88-29b8-f7ef9d0e0c85" role="listitem" class="product_item w-dyn-item">
-                            {% assign variant = product.selected_or_first_available_variant %}
-                            {% assign is_low_stock = variant.requires_shipping and variant.inventory_quantity > 0 and variant.inventory_quantity <= section.settings.low_stock_threshold %}
-                            {% assign is_on_sale = variant.compare_at_price > variant.price %}
                                     
                             
                             <script src="{{ 'li_custom.js' | asset_url }}" type="text/javascript"></script>
@@ -173,13 +170,13 @@
                                     {% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-item_tag is-small is-red">
     Sold out    </div>
 {% endif %}
-                                    {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price" class="product-item_tag is-small is-sale">
-    Save <span li-object="product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%'" class="sale-percent">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%' }}</span> <span li-object="product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | money_without_trailing_zeros" class="sale-value">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>     </div>
+                                    {% if product.selected_or_first_available_variant.compare_at_price gt product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price gt product.selected_or_first_available_variant.price" class="product-item_tag is-small is-sale">
+    Save  <span li-object="product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%'" class="sale-percent">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | round | append: '%' }}</span>     </div>
 {% endif %}
-                                    {% if product.tags contains 'New' and variant.available and is_low_stock == false and is_on_sale == false %}    <div li-if="product.tags contains 'New' and product.selected_or_first_available_variant.available and not (product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold) and not (product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price)" class="product-item_tag is-small is-new">
+                                    {% if product.tags contains 'New' and product.selected_or_first_available_variant.available %}    <div li-if="product.tags contains 'New' and product.selected_or_first_available_variant.available" class="product-item_tag is-small is-new">
     New    </div>
 {% endif %}
-                                    {% if product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold %}    <div li-if="product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold" class="product-item_tag is-small is-low">
+                                    {% if product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity gt 0 and product.selected_or_first_available_variant.inventory_quantity lte section.settings.low_stock_threshold %}    <div li-if="product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity gt 0 and product.selected_or_first_available_variant.inventory_quantity lte section.settings.low_stock_threshold" class="product-item_tag is-small is-low">
     Low stock    </div>
 {% endif %}
                                   </div>
@@ -335,15 +332,6 @@
             "type": "text",
             "label": "Button Text",
             "default": "Add to Cart"
-        },
-        {
-            "type": "range",
-            "id": "low_stock_threshold",
-            "min": 1,
-            "max": 50,
-            "step": 1,
-            "label": "Low stock threshold",
-            "default": 5
         }
     ],
     "presets": [
