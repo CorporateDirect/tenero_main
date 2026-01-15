@@ -10,12 +10,12 @@
 </div>
                     </div>
                     <div class="margin-bottom margin-small">
-                      <h2 class="heading-style-h2 is-alt-color text-align-center">
+                      <h2 scrub-each-word="" text-split="" class="heading-style-h2 is-alt-color text-align-center">
 {{ section.settings.text_heading }}
 </h2>
                     </div>
                     <div class="margin-bottom margin-xxlarge">
-                      <p class="text-size-medium text-align-center is-alt-color">
+                      <p lines-reveal="" class="text-size-medium text-align-center is-alt-color">
 {{ section.settings.text_paragraph }}
 </p>
                     </div>
@@ -25,7 +25,7 @@
                   <div class="layout_list">
                     <div class="podcast-home-list_wrapper">
                       <div class="podcast_cms-wrapper">
-                        {% for ep in latest_episodes %}    <a li-for="ep in latest_episodes" href="#" class="podcast_list-item w-inline-block">
+                        {% for episodes in latest_episodes %}    <a li-for="episodes in latest_episodes" href="#" class="podcast_list-item w-inline-block">
                                     
                           
                             <div class="margin-bottom margin-xxsmall">
@@ -36,25 +36,25 @@
                             <div class="margin-bottom margin-xxsmall">
                             <div class="podcast_episode-wrapper">
                               <div sym-bind="{"children":{"type":"Call","val":{"fun":{"type":"Variable","val":["DynamoGateway","dynamoPlainTextToListOfElements"]},"arg":{"type":"Select","val":{"from":{"type":"Variable","val":"Dynamo"},"prop":"podcast-episode-number"}}}}}" class="text-style-tagline is-alt-color">Episode</div>
-                              <div li-object="ep.episode_number" class="text-style-tagline is-alt-color">{{ ep.episode_number }}</div>
+                              <div li-object="episode.episode_number" class="text-style-tagline is-alt-color">{{ episode.episode_number }}</div>
                             </div>
                           </div>
                             
                           
                             <div class="margin-bottom margin-small">
-                            <h3 li-object="ep.title" class="heading-style-h3 is-alt-color">{{ ep.title }}</h3>
+                            <h3 li-object="episode.title" class="heading-style-h3 is-alt-color">{{ episode.title }}</h3>
                           </div>
                             
                           
                             <div class="margin-bottom margin-small">
-                            <p li-object="ep.description" class="text-size-regular-3 is-alt-color">{{ ep.description }}</p>
+                            <p li-object="episode.description" class="text-size-regular-3 is-alt-color">{{ episode.description }}</p>
                           </div>
                             
                           
                             <div class="margin-top margin-medium">
                             <div class="content-tag_collection-wrapper">
                               <div class="content-tag_collection-list">
-                                <div li-object="t in ep.tags" class="content-tag_collection-item">{{ t in ep.tags }}</div>
+                                <div li-object="episode.episode_tags" class="content-tag_collection-item">{{ episode.episode_tags }}</div>
                               </div>
                             </div>
                           </div>
