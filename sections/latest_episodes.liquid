@@ -53,9 +53,17 @@
                           
                             <div class="margin-top margin-medium">
                             <div class="content-tag_collection-wrapper">
+<<<<<<< Updated upstream
                               <div class="content-tag_collection-list">
                                 <div li-object="episode.episode_tags" class="content-tag_collection-item">{{ episode.episode_tags }}</div>
                               </div>
+=======
+                            <div class="content-tag_collection-list">
+                              {% for t in ep.tags %}
+                              <div li-object="t" class="content-tag_collection-item">{{ t }}</div>
+                              {% endfor %}
+                            </div>
+>>>>>>> Stashed changes
                             </div>
                           </div>
                             

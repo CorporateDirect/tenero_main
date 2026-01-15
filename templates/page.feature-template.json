@@ -1,6 +1,12 @@
 {
-    "sections": [],
+    "sections": {
+        "text_centered": {
+            "type": "text_centered"
+        }
+    },
     "layout": "page.feature-template",
     "wrapper": "div.main-wrapper",
-    "order": []
+    "order": [
+        "text_centered"
+    ]
 }

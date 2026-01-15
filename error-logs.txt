@@ -1,0 +1,79 @@
+01:25:49 PM:
+
+Creating new theme from GitHub branch
+
+01:25:49 PM:
+
+Files fetched
+
+01:25:49 PM:
+
+Error: layout/page.detail-dummy-list.liquid, Validation failed: Missing {{content_for_layout}} in the body section of the template
+
+01:25:59 PM:
+
+Error: sections/latest_episodes.liquid, Validation failed: Liquid syntax error (line 57): Expected end_of_string but found id in "{{ t in ep.tags }}"
+
+01:25:59 PM:
+
+Error: sections/legal_content.liquid, Validation failed: Invalid enabled_on property: templates[0]: must be one of 404, cart, checkpoint, gift_card, list-collections, password, queue, search, article, blog, collection, page, product, metaobject, customers/account, customers/activate_account, customers/addresses, customers/login, customers/order, customers/register, customers/reset_password, index
+
+01:25:59 PM:
+
+Error: sections/legal_hero.liquid, Validation failed: Invalid schema: tag is invalid
+
+01:25:59 PM:
+
+Error: sections/collection_products.liquid, Validation failed: Liquid syntax error (line 176): Expected end_of_string but found open_round in "product.tags contains 'New' and product.selected_or_first_available_variant.available and not (product.selected_or_first_available_variant.requires_shipping and product.selected_or_first_available_variant.inventory_quantity > 0 and product.selected_or_first_available_variant.inventory_quantity <= section.settings.low_stock_threshold) and not (product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price)"
+
+01:25:59 PM:
+
+Error: sections/endorsements.liquid, Validation failed: Invalid block 'logo': settings must be an array
+
+01:25:59 PM:
+
+Error: sections/episodes_list.liquid, Validation failed: Invalid schema: setting type is required, Invalid schema: setting 'name' is not a valid attribute, Invalid schema: setting 'settings' is not a valid attribute, Invalid schema: setting with id="number_max_episodes_50" default must be an integer or datasource access path, Invalid schema: setting with id="text" label is required
+
+01:26:01 PM:
+
+Error: templates/collection.json, Validation failed: Section type 'collection_products' does not refer to an existing section file
+
+01:26:01 PM:
+
+Error: templates/page.feature-template.json, Validation failed: sections: must be an object, order: can't be blank
+
+01:26:01 PM:
+
+Error: templates/page.log-in.json, Validation failed: Section 'login' is not supported on page templates.
+
+01:26:01 PM:
+
+Error: templates/page.password-reset.json, Validation failed: Section 'reset' is not supported on page templates.
+
+01:26:01 PM:
+
+Error: templates/page.privacy-policy.json, Validation failed: Section type 'legal_hero' does not refer to an existing section file, Section type 'legal_content' does not refer to an existing section file
+
+01:26:01 PM:
+
+Error: templates/page.show-template.json, Validation failed: Section type 'episodes_list' does not refer to an existing section file
+
+01:26:02 PM:
+
+Error: templates/index.json, Validation failed: Section type 'endorsements' does not refer to an existing section file, Section type 'latest_episodes' does not refer to an existing section file
+
+01:26:02 PM:
+
+Error: templates/page.collection-list.json, Validation failed: Section 'list_collection' is not supported on page templates.
+
+01:26:02 PM:
+
+Error: templates/page.detail-dummy-list.json, Validation failed: sections: must be an object, order: can't be blank, wrapper: can't be blank
+
+01:26:03 PM:
+
+83 succeeded, 0 warnings, 16 failed
+
+01:26:03 PM:
+
+Theme updated!

@@ -1,6 +1,12 @@
 {
-    "sections": [],
+    "sections": {
+        "text_centered": {
+            "type": "text_centered"
+        }
+    },
     "layout": "page.detail-dummy-list",
-    "wrapper": "",
-    "order": []
+    "wrapper": "div.main-wrapper",
+    "order": [
+        "text_centered"
+    ]
 }

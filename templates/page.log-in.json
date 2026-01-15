@@ -1,12 +1,12 @@
 {
     "sections": {
-        "login": {
-            "type": "login"
+        "text_centered": {
+            "type": "text_centered"
         }
     },
     "layout": "page.log-in",
     "wrapper": "div.main-wrapper",
     "order": [
-        "login"
+        "text_centered"
     ]
 }

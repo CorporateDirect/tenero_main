@@ -39,7 +39,7 @@
                               </div>
                               <div class="cms_empty-state-wrapper">
                                 <div class="text-size-small is-hidden">
-{{ section.settings.text_ }}
+{{ section.settings.text_empty_state_text }}
 </div>
                               </div>
                             </div>
@@ -144,56 +144,50 @@
             "content": "Episodes List"
         },
         {
-            "name": "Episodes List",
-            "settings": [
+            "id": "search_placeholder",
+            "type": "text",
+            "label": "Search placeholder",
+            "default": "Search episodes..."
+        },
+        {
+            "id": "text_empty_state_text",
+            "type": "text",
+            "label": "Empty state text",
+            "default": "No episodes found."
+        },
+        {
+            "id": "default_sort",
+            "type": "select",
+            "label": "Default sort",
+            "default": "episode_number_desc",
+            "options": [
                 {
-                    "type": "text",
-                    "id": "search_placeholder",
-                    "label": "Search placeholder",
-                    "default": "Search episodes\u2026"
+                    "value": "episode_number_desc",
+                    "label": "Episode number (desc)"
                 },
                 {
-                    "type": "text",
-                    "id": "empty_state_text",
-                    "label": "Empty state text",
-                    "default": "No episodes found."
-                },
-                {
-                    "type": "checkbox",
-                    "id": "enable_filters",
-                    "label": "Enable filters",
-                    "default": true
+                    "value": "publish_date_desc",
+                    "label": "Publish date (desc)"
                 }
             ]
         },
         {
+            "id": "max_episodes",
+            "type": "number",
+            "label": "Max episodes",
+            "default": 50
+        },
+        {
             "id": "checkbox_enable_filters",
             "type": "checkbox",
-            "label": "enable_filters",
+            "label": "Enable filters",
             "default": true
         },
         {
             "id": "text_search_button_label",
             "type": "text",
-            "label": "search_button_label",
-            "default": "Lorem Ipsum"
-        },
-        {
-            "id": "number_max_episodes_50",
-            "type": "number",
-            "label": "max_episodes = 50",
-            "default": "\n                              <div style=\"display: none;\"\/>\n                            "
-        },
-        {
-            "id": "text",
-            "type": "text",
-            "default": "No items found."
-        },
-        {
-            "id": "text_empty_state_text",
-            "type": "text",
-            "label": "empty_state_text",
-            "default": "This is some text inside of a div block."
+            "label": "Search button label",
+            "default": "Search"
         }
     ],
     "presets": [
